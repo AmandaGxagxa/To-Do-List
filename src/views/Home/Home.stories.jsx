@@ -1,6 +1,7 @@
 import Home from './Home';
-import Global from '../../components/Global/Global'
 import faker from "faker";
+import Global from '../../components/Global/Global'
+
 const config ={
     title :'views/Home'
 }
@@ -8,12 +9,12 @@ const config ={
 export default config;
 
 const MOCK_LIST =new Array(20).fill(null).map(() =>({
-    id:faker.lorem.uuid(),
+    id:faker.random.uuid(),
     name:faker.lorem.words(),
     checked:faker.random.boolean(),
 }) )
 
-const Default = ()=><Global><Home list= {MOCK_LIST}/></Global>
+const Default = ()=><Global><Home list={MOCK_LIST}/></Global>
 
 
 export {

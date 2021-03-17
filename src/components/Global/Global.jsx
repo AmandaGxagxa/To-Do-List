@@ -11,7 +11,8 @@ body{
     overflow-y:scroll;
     background: papayawhip;
     Arial, sans-serif;
-
+    padding:0 0 8rem 0 !important;
+    margin:0 !important;
 }
 `;
 

@@ -15,6 +15,7 @@ const Base = styled.a`
   display :inline-block;
   text-decoration : none;
   text-align:center;
+  white-space:nowrap;
   width: ${(props) => (props.fullWidth ? "100%" : "auto")};
   color: ${(props) => (props.disabled ? "#999" : "#222")};
   cursor:${(props) => (props.disabled ? "not-allowed" : "pointer")};
