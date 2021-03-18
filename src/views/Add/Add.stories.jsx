@@ -7,7 +7,7 @@ const config ={
 
 export default config;
 
-const Default = ()=> <Global><Add/></Global>
+const Default = ()=> <Global><Add onSave={console.log} /></Global>
 
 
 export {

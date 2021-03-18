@@ -57,14 +57,14 @@ const Layout = (props) => {
             <LinkWrap>
               <Global>
                 {/* When on home Home button must be disabledd */}
-                <Link fullWidth disabled={activePage === "home"}>
+                <Link fullWidth disabled={activePage === "home"} url="#/home">
                   Back to home
                 </Link>
               </Global>
             </LinkWrap>
             <LinkWrap>
               <Global>
-                <Link fullWidth disabled={activePage === "add"}>
+                <Link fullWidth disabled={activePage === "add"} url="#/add" >
                   Add new item
                 </Link>
               </Global>

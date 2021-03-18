@@ -21,20 +21,24 @@ const Name = styled.h2`
   // to give all the space between icons and text
   flex-grow: 1;
   text-align: center;
-  font-size:1.1rem;
+  font-size: 1.1rem;
 `;
 const Task = (props) => {
   // distructuring
-  const { id, name, checked } = props;
+  const { id, name, checked ,onCheckToggle ,onDeleteItem} = props;
+  const handleCheckToggle =()=>onCheckToggle(id);
+  const handleDeleteItem =()=>onDeleteItem(id);
+
   return (
     <Item>
-      <Checkbox checked={checked} />
+      <Checkbox checked={checked} onChange={handleCheckToggle} />
       <Name>{name}</Name>
       <div>
-        <IconButton href={`edit/${id}`}>
+        <IconButton href={`#/edit/${id}`}>
           <Edit />
         </IconButton>
-        <IconButton>
+
+        <IconButton onClick={handleDeleteItem}>
           <Delete />
         </IconButton>
       </div>
@@ -44,18 +48,23 @@ const Task = (props) => {
 
 const Home = (props) => {
   // this is just an empty array
-  const { list } = props;
+  const { list, onCheckToggle ,onDeleteItem} = props;
   return (
     <Layout activePage="home">
       <List>
         {/* looping over the list and set it to task */}
         {list.map(({ id, name, checked }) => (
           // assigning these directly to the taskes created above
-          <Task id={id} name={name} checked={checked} />
+          <Task
+            key={id}
+            id={id}
+            name={name}
+            checked={checked}
+            onCheckToggle={onCheckToggle}
+            onDeleteItem={onDeleteItem}
+
+          />
         ))}
-        <Task />
-        <Task />
-        <Task />
       </List>
     </Layout>
   );
