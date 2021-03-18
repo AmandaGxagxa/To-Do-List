@@ -1,4 +1,3 @@
-import Global from "../Global/Global"
 import styled from "styled-components";
 
 const Base = styled.a`

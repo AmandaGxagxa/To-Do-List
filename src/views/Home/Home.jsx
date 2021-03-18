@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Layout from "../../components/Layout/Layout";
-import { Button, Checkbox, IconButton } from "@material-ui/core";
+import { Checkbox, IconButton } from "@material-ui/core";
 import { Delete, Edit } from "@material-ui/icons";
 
 const List = styled.ul`
