@@ -1,4 +1,4 @@
-import React, { useState , useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { v4 as createId } from "uuid";
 import { HashRouter, Switch, Route, useParams } from "react-router-dom";
 
@@ -14,13 +14,31 @@ const EditWrapper = (props) => {
   return <Edit {...remainingProps} taskId={taskId} initialName={name} />;
 };
 
-useEffect(
-  ()=>console.log(list)
-)
-
 const App = () => {
   const [list, setList] = useState([]);
-  //
+  //determining if the local storage is loaded
+  const [loaded, setLoaded] = useState(false);
+  useEffect(() => {
+    const listAsString = window.localStorage.getItem("list");
+    if (listAsString) {
+      setList(JSON.parse(listAsString));
+    }
+    setLoaded(true);
+  }, []);
+
+  useEffect(
+    () => {
+    if(loaded){
+      window.localStorage.setItem(
+        "list",
+        //local storage can only save strings hence you must stringify
+        JSON.stringify(list),
+      )
+      }
+    },
+      [list, loaded],
+  
+  );
   //Allow to and item and after the ad button clicked redirect to home page and display
   const handleAddItem = (name) => {
     setList([{ id: createId(), name, checked: false }, ...list]);
